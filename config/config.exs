@@ -9,7 +9,10 @@ import Config
 
 config :tutorial,
   ecto_repos: [Tutorial.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [binary_id: true, timestamp_type: :utc_datetime]
+
+config :tutorial, Tutorial.Repo,
+  migration_primary_key: [name: :id, type: :binary_id]
 
 # Configures the endpoint
 config :tutorial, TutorialWeb.Endpoint,
